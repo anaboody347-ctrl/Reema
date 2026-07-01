@@ -1,151 +1,178 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
 body{
-background:linear-gradient(-45deg,#ff4b6e,#ff758c,#b31245,#8e0e00);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-color:#fff;
-overflow-x:hidden;
+    background:linear-gradient(-45deg,#ff4d6d,#ff758c,#9d174d,#5f0f40);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    color:#fff;
+    overflow-x:hidden;
+    min-height:100vh;
 }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
 .hero h1{
-font-size:70px;
-margin-bottom:20px;
-animation:pulse 2s infinite;
+    font-size:65px;
+    margin-bottom:20px;
+    animation:pulse 2s infinite;
 }
 
 .hero p{
-font-size:28px;
-margin-bottom:40px;
-line-height:1.8;
+    font-size:24px;
+    line-height:1.8;
+    margin-bottom:35px;
 }
 
 button{
-padding:18px 45px;
-border:none;
-border-radius:60px;
-background:#fff;
-color:#e91e63;
-font-size:22px;
-cursor:pointer;
-transition:.4s;
-box-shadow:0 0 20px rgba(255,255,255,.4);
+    padding:18px 45px;
+    border:none;
+    border-radius:50px;
+    background:#fff;
+    color:#e91e63;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 button:hover{
-transform:scale(1.08);
+    transform:scale(1.08);
 }
 
 .letter{
-display:none;
-max-width:900px;
-margin:60px auto;
-padding:40px;
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(15px);
-border-radius:30px;
-text-align:center;
-line-height:2.2;
-font-size:24px;
-box-shadow:0 0 35px rgba(255,255,255,.2);
-animation:fade .8s;
+    display:none;
+    width:90%;
+    max-width:900px;
+    margin:50px auto;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+    animation:fade .8s;
 }
 
 @keyframes fade{
-from{
-opacity:0;
-transform:translateY(40px);
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
-to{
-opacity:1;
-transform:translateY(0);
+
+.letter h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:40px;
 }
+
+.letter p{
+    font-size:22px;
+    line-height:2;
+    text-align:center;
 }
 
 .photos{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:40px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:40px;
 }
 
 .photos img{
-width:250px;
-height:320px;
-object-fit:cover;
-border-radius:25px;
-box-shadow:0 0 25px rgba(255,255,255,.4);
-transition:.5s;
+    width:260px;
+    height:330px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid rgba(255,255,255,.4);
+    transition:.4s;
+    cursor:pointer;
 }
 
 .photos img:hover{
-transform:scale(1.08) rotate(2deg);
+    transform:scale(1.08) rotate(2deg);
 }
 
 .music{
-display:inline-block;
-margin-top:35px;
-padding:18px 35px;
-background:#fff;
-color:#e91e63;
-text-decoration:none;
-border-radius:60px;
-font-weight:bold;
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:#fff;
+    color:#e91e63;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.music:hover{
+    transform:scale(1.08);
 }
 
 .forgive{
-margin-top:35px;
-background:#ff1744;
-color:white;
+    margin-top:25px;
+    background:#ff1744;
+    color:white;
 }
 
 @keyframes pulse{
-50%{
-transform:scale(1.08);
-}
+    50%{
+        transform:scale(1.08);
+    }
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:45px;
+    font-size:42px;
 }
 
 .hero p{
-font-size:22px;
+    font-size:20px;
+}
+
+.letter h2{
+    font-size:32px;
+}
+
+.letter p{
+    font-size:19px;
 }
 
 .photos img{
-width:90%;
-height:auto;
+    width:100%;
+    height:auto;
 }
 
-.letter{
-margin:20px;
-font-size:20px;
-padding:25px;
+button{
+    width:100%;
+}
+
+.music{
+    display:block;
 }
 
 }
