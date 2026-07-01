@@ -1,12 +1,15 @@
-// إظهار الرسالة
 function showLetter() {
     document.querySelector(".hero").style.display = "none";
     document.getElementById("letter").style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
-// قلوب متطايرة
+// ❤️ قلوب متطايرة
 function createHeart() {
+
     const heart = document.createElement("div");
 
     heart.innerHTML = "❤️";
@@ -14,9 +17,10 @@ function createHeart() {
     heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.top = "-30px";
-    heart.style.fontSize = (20 + Math.random() * 30) + "px";
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
     heart.style.pointerEvents = "none";
     heart.style.zIndex = "9999";
+    heart.style.opacity = "1";
     heart.style.transition = "transform 8s linear, opacity 8s";
 
     document.body.appendChild(heart);
@@ -31,12 +35,12 @@ function createHeart() {
     }, 8000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 350);
 
-// تأثير النجوم مع حركة الماوس
-document.addEventListener("mousemove", function (e) {
+// ✨ نجوم مع حركة الماوس
+document.addEventListener("mousemove", function(e){
 
-    const star = document.createElement("div");
+    let star = document.createElement("div");
 
     star.innerHTML = "✨";
 
@@ -49,32 +53,72 @@ document.addEventListener("mousemove", function (e) {
 
     document.body.appendChild(star);
 
-    setTimeout(() => {
-        star.style.opacity = "0";
-        star.style.transform = "translateY(-20px)";
-    }, 50);
+    setTimeout(()=>{
+        star.style.opacity="0";
+        star.style.transform="translateY(-20px)";
+    },50);
 
-    setTimeout(() => {
+    setTimeout(()=>{
         star.remove();
-    }, 800);
+    },800);
 
 });
 
-// زر سامحتك
-const forgive = document.querySelector(".forgive");
+// ❤️ عند الضغط على سامحتك
+document.addEventListener("click",function(e){
 
-if (forgive) {
+    if(e.target.classList.contains("forgive")){
 
-    forgive.onclick = function () {
+        for(let i=0;i<100;i++){
 
-        for (let i = 0; i < 80; i++) {
-
-            setTimeout(createHeart, i * 50);
+            setTimeout(createHeart,i*30);
 
         }
 
-        alert("❤️ بحبك يا ريم... وشكرًا إنك سامحتيني ❤️");
+        e.target.innerHTML="🥹 بحبك يا بطتي ❤️";
+
+        alert("❤️ شكراً يا ريم... بحبك وهفضل أحبك كل يوم ❤️");
 
     }
 
+});
+
+// 📸 تكبير الصور
+document.querySelectorAll(".photos img").forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+const overlay=document.createElement("div");
+
+overlay.style.position="fixed";
+overlay.style.top="0";
+overlay.style.left="0";
+overlay.style.width="100%";
+overlay.style.height="100%";
+overlay.style.background="rgba(0,0,0,.9)";
+overlay.style.display="flex";
+overlay.style.justifyContent="center";
+overlay.style.alignItems="center";
+overlay.style.zIndex="10000";
+
+const image=document.createElement("img");
+
+image.src=img.src;
+
+image.style.maxWidth="90%";
+image.style.maxHeight="90%";
+image.style.borderRadius="20px";
+
+overlay.appendChild(image);
+
+overlay.onclick=function(){
+
+overlay.remove();
+
 }
+
+document.body.appendChild(overlay);
+
+});
+
+});
